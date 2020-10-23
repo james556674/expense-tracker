@@ -12,7 +12,7 @@ db.on('error', () => {
 db.once('open', () => {
   console.log('mongodb connected!')
   for (let i = 0; i < 10; i++) {
-    Record.create({ name: 'name-' + i })
+    Record.create({ name: 'name-' + i, date: '2013/3/3' })
   }
   console.log('done')
 })
