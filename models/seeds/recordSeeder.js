@@ -1,9 +1,5 @@
-const express = require('express')
 const mongoose = require('mongoose')
-
-
-const app = express()
-const port = 3000
+const Record = require('../record')
 
 mongoose.connect('mongodb://localhost/expense', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -15,13 +11,8 @@ db.on('error', () => {
 
 db.once('open', () => {
   console.log('mongodb connected!')
-})
-
-
-app.get('/', (req, res) => {
-  res.send('this is a expense-tracker')
-})
-
-app.listen(port, () => {
-  console.log(`this express is running on http://localhost:${port}`)
+  for (let i = 0; i < 10; i++) {
+    Record.create({ name: 'name-' + i })
+  }
+  console.log('done')
 })
