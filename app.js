@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const exphbs = require('express-handlebars');
+const exphbs = require('express-handlebars')
+const Record = require('./models/record')
 
 const app = express()
 const port = 3000
@@ -22,7 +23,10 @@ app.set('view engine', 'hbs')
 
 
 app.get('/', (req, res) => {
-  res.render('index')
+  Record.find()
+    .lean()
+    .then(records => res.render('index', { records }))
+    .catch(error => console.error(error)) // 
 })
 
 app.listen(port, () => {
