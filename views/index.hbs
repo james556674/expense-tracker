@@ -2,10 +2,10 @@
 <ul>
   {{#each records}}
   <li>
+    {{{this.icon}}}
     {{this.name}}
     {{this.date}}
     {{this.amount}}
-    {{this.category}}
     <a href="./records/{{ this._id }}/edit">edit</a>
     <form action="./records/{{ this._id }}/delete" method="POST" style="display: inline;">
       <button type="submit">delete</button>

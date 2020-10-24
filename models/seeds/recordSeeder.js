@@ -17,31 +17,36 @@ db.once('open', () => {
       name: "午飯",
       date: "2020-10-23",
       amount: 60,
-      category: '餐飲食品'
+      category: '餐飲食品',
+      icon: '<i class="fas fa-utensils"></i>'
     },
     {
       name: "晚餐",
       date: "2020-10-23",
       amount: 60,
-      category: '餐飲食品'
+      category: '餐飲食品',
+      icon: '<i class="fas fa-utensils"></i>'
     },
     {
       name: "捷運",
       date: "2020-10-23",
       amount: 120,
-      category: '交通出行'
+      category: '交通出行',
+      icon: '<i class="fas fa-shuttle-van"></i>'
     },
     {
       name: '電影：驚奇隊長',
       date: "2020-10-23",
       amount: 220,
-      category: '休閒娛樂'
+      category: '休閒娛樂',
+      icon: '<i class="fas fa-grin-beam"></i>'
     },
     {
       name: "租金",
       date: "2020-10-24",
       amount: 25000,
-      category: '其他'
+      category: '其他',
+      icon: '<i class="fas fa-pen"></i>'
     },
   )
 
