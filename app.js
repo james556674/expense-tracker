@@ -61,6 +61,22 @@ app.get('/records/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
+app.post('/filter', (req, res) => {
+  let categorys = req.body.category
+
+  Record.find()
+    .lean()
+    .then(records => {
+
+      records = records.filter((record) =>
+        record.category.toLowerCase().includes(categorys)
+      )
+
+      res.render('index', { records })
+    })
+    .catch(error => console.error(error)) // 
+})
+
 app.post('/records', (req, res) => {
   const name = req.body.name
   const date = req.body.date
@@ -101,6 +117,8 @@ app.post('/records/:id/delete', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
+
+
 
 app.listen(port, () => {
   console.log(`this express is running on http://localhost:${port}`)

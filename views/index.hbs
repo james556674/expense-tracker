@@ -1,4 +1,19 @@
 <a href="./records/new">Create</a>
+
+<form action="/filter" method="POST">
+  <div class="form-group">
+    <select class="form-control" name="category" onchange="this.form.submit()">
+      <option disabled selected>類別</option>
+      <option>餐飲食品</option>
+      <option>交通出行</option>
+      <option>休閒娛樂</option>
+      <option>家居物業</option>
+      <option>其他</option>
+    </select>
+  </div>
+</form>
+
+
 <div class="d-flex justify-content-center align-items-center">
   <h5 class="mr-3">總金額:</h5>
   <h1>{{totalAmount}}</h1>
