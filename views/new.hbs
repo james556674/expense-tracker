@@ -1,5 +1,17 @@
 <form action="/records" method="POST">
-  <input type="text" placeholder="name" name="name">
-  <input type="text" placeholder="date" name="date">
+  <input type="text" placeholder="name" name="name" required>
+  <input type="text" placeholder="date" name="date" required>
+  <input type="text" placeholder="amount" name="amount" required>
+
+  <div class="form-group">
+    <label for="cars">支出類別: </label>
+    <select id="new-category" class="form-control" name="category">
+      <option>餐飲食品</option>
+      <option>交通出行</option>
+      <option>休閒娛樂</option>
+      <option>家居物業</option>
+      <option>其他</option>
+    </select>
+  </div>
   <button type="submit">Create</button>
 </form>

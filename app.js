@@ -47,7 +47,10 @@ app.get('/records/:id/edit', (req, res) => {
 app.post('/records', (req, res) => {
   const name = req.body.name
   const date = req.body.date
-  return Record.create({ name, date })
+  const amount = req.body.amount
+  const category = req.body.category
+
+  return Record.create({ name, date, amount, category })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
@@ -56,10 +59,15 @@ app.post('/records/:id/edit', (req, res) => {
   const id = req.params.id
   const name = req.body.name
   const date = req.body.date
+  const amount = req.body.amount
+  const category = req.body.category
+
   return Record.findById(id)
     .then(record => {
       record.name = name
       record.date = date
+      record.amount = amount
+      record.category = category
       return record.save()
     })
     .then(() => res.redirect(`/`))
