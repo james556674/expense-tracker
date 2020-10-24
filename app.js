@@ -33,9 +33,19 @@ app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
+
+  let totalAmount = 0
+
   Record.find()
     .lean()
-    .then(records => res.render('index', { records }))
+    .then(records => {
+      //sum total amount
+      records.forEach(record => {
+        totalAmount += record.amount
+      })
+
+      res.render('index', { records, totalAmount })
+    })
     .catch(error => console.error(error)) // 
 })
 
