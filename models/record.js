@@ -8,6 +8,14 @@ const recordSchema = new Schema({
   date: {
     type: String,
     required: true
+  },
+  amount: {
+    type: Number,
+    require: true
+  },
+  category: {
+    type: String,
+    required: true,
   }
 })
 module.exports = mongoose.model('Record', recordSchema)
