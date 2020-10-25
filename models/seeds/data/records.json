@@ -1,0 +1,39 @@
+{
+  "results": [
+    {
+      "name": "午飯",
+      "date": "2020-10-23",
+      "amount": 60,
+      "category": "餐飲食品",
+      "icon": "fas fa-utensils"
+    },
+    {
+      "name": "晚餐",
+      "date": "2020-10-23",
+      "amount": 60,
+      "category": "餐飲食品",
+      "icon": "fas fa-utensils"
+    },
+    {
+      "name": "捷運",
+      "date": "2020-10-23",
+      "amount": 120,
+      "category": "交通出行",
+      "icon": "fas fa-shuttle-van"
+    },
+    {
+      "name": "電影：驚奇隊長",
+      "date": "2020-10-23",
+      "amount": 220,
+      "category": "休閒娛樂",
+      "icon": "fas fa-grin-beam"
+    },
+    {
+      "name": "租金",
+      "date": "2020-10-24",
+      "amount": 25000,
+      "category": "其他",
+      "icon": "fas fa-pen"
+    }
+  ]
+}
