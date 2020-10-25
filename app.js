@@ -3,14 +3,7 @@ const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const Record = require('./models/record')
 const bodyParser = require('body-parser')
-const iconCategory = {
-  家居物業: '<i class="fas fa-home"></i>',
-  交通出行: '<i class="fas fa-shuttle-van"></i>',
-  休閒娛樂: '<i class="fas fa-grin-beam"></i>',
-  餐飲食品: '<i class="fas fa-utensils"></i>',
-  其他: '<i class="fas fa-pen"></i>'
-}
-
+const iconList = require('./models/seeds/data/iconList.json')
 
 const app = express()
 const port = 3000
@@ -82,7 +75,7 @@ app.post('/records', (req, res) => {
   const date = req.body.date
   const amount = req.body.amount
   const category = req.body.category
-  const icon = iconCategory[category]
+  const icon = iconList.results[0][category]
 
   return Record.create({ name, date, amount, category, icon })
     .then(() => res.redirect('/'))
@@ -95,7 +88,7 @@ app.post('/records/:id/edit', (req, res) => {
   const date = req.body.date
   const amount = req.body.amount
   const category = req.body.category
-  const icon = iconCategory[category]
+  const icon = iconList.results[0][category]
 
   return Record.findById(id)
     .then(record => {
