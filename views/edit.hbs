@@ -1,18 +1,51 @@
-<form action="/records/{{ record._id }}?_method=PUT" method="POST">
-  <input type="text" placeholder="name" name="name" value="{{ record.name }}">
-  <input type="text" placeholder="date" name="date" value="{{ record.date }}">
-  <input type="text" placeholder="amount" name="amount" value="{{ record.amount }}">
-  <div class="form-group">
-    <label for="cars">支出類別: </label>
-    <select id="new-category" class="form-control" name="category">
-      <option>{{record.category}}</option>
-      <option>餐飲食品</option>
-      <option>交通出行</option>
-      <option>休閒娛樂</option>
-      <option>家居物業</option>
-      <option>其他</option>
-    </select>
+<form action="/records/{{ record._id }}?_method=PUT" method="POST" class="mt-5">
+  <div class="form-group container d-flex flex-column justify-content-center ">
+
+    <div class="container d-flex justify-content-center m-2">
+      <p class="col-sm-2">＊必填欄位</p>
+      <h6 class="col-sm-6" style="max-width: 200px;">請修改你的支出</h6>
+    </div>
+
+    <div class="container d-flex justify-content-center m-2">
+      <label class="col-sm-2 col-form-label">*名稱 : </label>
+      <div class="col-sm-6" style="max-width: 200px;">
+        <input type="text" placeholder="name" name="name" value="{{ record.name }}" required>
+      </div>
+    </div>
+
+    <div class="container d-flex justify-content-center m-2">
+      <label class="col-sm-2 col-form-label">*日期 : </label>
+      <div class="col-sm-6" style="max-width: 200px;">
+        <input type="text" placeholder="date" name="date" value="{{ record.date }}" required>
+      </div>
+    </div>
+
+    <div class="container d-flex justify-content-center m-2">
+      <label class="col-sm-2 col-form-label">*支出類別: </label>
+      <div class="col-sm-6 form-group" style="max-width: 200px;">
+        <select id="new-category" class="form-control" name="category">
+          <option>{{record.category}}</option>
+          <option>餐飲食品</option>
+          <option>交通出行</option>
+          <option>休閒娛樂</option>
+          <option>家居物業</option>
+          <option>其他</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="container d-flex justify-content-center m-2">
+      <label class="col-sm-2 col-form-label">*金額 : </label>
+      <div class="col-sm-6" style="max-width: 200px;">
+        <input type="text" placeholder="amount" name="amount" value="{{ record.amount }}" required>
+      </div>
+    </div>
+
+    <div class="container d-flex justify-content-center m-4">
+      <button type="submit" class="btn btn-outline-dark mr-5" style="max-width: 100px;">儲存</button>
+      <button type="text" class="btn btn-outline-dark" style="max-width: 100px;">
+        <a href="/">back</a>
+      </button>
+    </div>
   </div>
-  <button type="submit">Save</button>
-  <a href="/">back</a>
 </form>
