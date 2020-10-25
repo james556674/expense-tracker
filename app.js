@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const Record = require('./models/record')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const iconList = require('./models/seeds/data/iconList.json')
 
 const app = express()
@@ -24,6 +25,7 @@ app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
 
@@ -82,7 +84,7 @@ app.post('/records', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/records/:id/edit', (req, res) => {
+app.put('/records/:id', (req, res) => {
   const id = req.params.id
   const name = req.body.name
   const date = req.body.date
@@ -103,7 +105,7 @@ app.post('/records/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/records/:id/delete', (req, res) => {
+app.delete('/records/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .then(record => record.remove())
